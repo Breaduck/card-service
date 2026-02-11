@@ -1,0 +1,5 @@
+name = "card-benefits"
+pages_build_output_dir = "dist"
+
+[env.production]
+name = "card-benefits"

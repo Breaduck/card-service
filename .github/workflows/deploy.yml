@@ -29,7 +29,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Build web
-        run: npx expo export -p web
+        run: npm run build
         env:
           CI: true
 
