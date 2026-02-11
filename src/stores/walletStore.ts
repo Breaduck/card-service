@@ -1,7 +1,16 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { UserCard } from '../types/card';
+
+// 웹(localStorage) / 네이티브(AsyncStorage) 모두 지원하는 storage
+function getPlatformStorage() {
+  if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
+    return localStorage;
+  }
+  // 네이티브 환경
+  const AsyncStorage = require('@react-native-async-storage/async-storage').default;
+  return AsyncStorage;
+}
 
 interface WalletState {
   userCards: UserCard[];
@@ -39,7 +48,7 @@ export const useWalletStore = create<WalletState>()(
     }),
     {
       name: 'wallet-storage',
-      storage: createJSONStorage(() => AsyncStorage),
+      storage: createJSONStorage(getPlatformStorage),
     }
   )
 );

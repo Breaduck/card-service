@@ -158,7 +158,7 @@ export default function CardDetailScreen() {
             <Text className="text-toss-gray400 text-[14px]">등록된 혜택이 없습니다</Text>
           </View>
         )}
-        <View className="h-8" />
+        <View className="h-28" />
       </ScrollView>
     </SafeAreaView>
   );

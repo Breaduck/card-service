@@ -54,7 +54,7 @@ export default function WalletScreen() {
         ) : (
           <CardCarousel userCards={userCards} />
         )}
-        <View className="h-8" />
+        <View className="h-28" />
       </ScrollView>
     </SafeAreaView>
   );

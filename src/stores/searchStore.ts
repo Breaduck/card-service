@@ -1,6 +1,13 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
+function getPlatformStorage() {
+  if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
+    return localStorage;
+  }
+  const AsyncStorage = require('@react-native-async-storage/async-storage').default;
+  return AsyncStorage;
+}
 
 interface SearchState {
   recentSearches: string[];
@@ -24,7 +31,7 @@ export const useSearchStore = create<SearchState>()(
     }),
     {
       name: 'search-storage',
-      storage: createJSONStorage(() => AsyncStorage),
+      storage: createJSONStorage(getPlatformStorage),
     }
   )
 );

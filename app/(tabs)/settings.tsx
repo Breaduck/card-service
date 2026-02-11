@@ -95,6 +95,7 @@ export default function SettingsScreen() {
       <Text className="text-center text-[12px] text-toss-gray400 mt-4">
         카드 혜택 정보는 실제와 다를 수 있습니다{'\n'}항상 카드사 공식 페이지를 확인하세요
       </Text>
+      <View className="h-28" />
     </SafeAreaView>
   );
 }

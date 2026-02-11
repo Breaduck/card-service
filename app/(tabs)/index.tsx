@@ -35,7 +35,7 @@ export default function HomeScreen() {
           <PopularStoreChips />
         </View>
 
-        <View className="h-8" />
+        <View className="h-28" />
       </ScrollView>
     </SafeAreaView>
   );

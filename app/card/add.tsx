@@ -59,8 +59,10 @@ export default function AddCardScreen() {
                   <View key={card.id}>
                     <TouchableOpacity
                       onPress={() => {
-                        if (!inWallet) addCard(card.id);
-                        router.back();
+                        if (!inWallet) {
+                          addCard(card.id);
+                        }
+                        router.dismiss();
                       }}
                       activeOpacity={0.7}
                       className="flex-row items-center px-4 py-3.5"
@@ -104,7 +106,7 @@ export default function AddCardScreen() {
             </View>
           );
         })}
-        <View className="h-8" />
+        <View className="h-28" />
       </ScrollView>
     </SafeAreaView>
   );
